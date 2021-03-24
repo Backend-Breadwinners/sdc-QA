@@ -1,0 +1,5 @@
+config.js
+.env
+node_modules
+
+psql -U postgres -f'/Users/killermac/Desktop/hr-bld15/SDC/Backend-BreadWinners'
