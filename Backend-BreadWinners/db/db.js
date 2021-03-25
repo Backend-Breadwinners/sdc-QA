@@ -32,42 +32,111 @@ question_id int NOT NULL,
 */
 
 const getProductQuestions = (data, cb) => {
-    console.log(typeof data.product_id);
+    let count = data.count.toString();
     let product = data.product_id.toString();
-    const query1 = pool.query(`SELECT jsonb_build_object(
-        'product_id', product_id,
-        'results', json_agg(
-            jsonb_build_object(
-                'question_id', q.id,
-                'question_body', q.body,
-                'question_date', q.date_written,
-                'asker_name', q.asker_name,
-                'question_helpfulness', q.helpful,
-                'reported', q.reported
-            )
-        )
-    ) questions
-    FROM questions q
-    LEFT OUTER JOIN answers a ON q.id = a.question_id
-    LEFT OUTER JOIN photos ON a.id = photos.answer_id
-    WHERE product_id = '5'
-    GROUP BY product_id
+    pool.query(`  
+    SELECT jsonb_agg(questions) AS results
+    FROM (
+        SELECT
+            questions.id AS question_id,
+            questions.body,
+            questions.helpful,
+            questions.reported,
+            questions.asker_name,
+            questions.product_id,
+            questions.asker_email,
+            questions.date_written,
+            (
+                SELECT json_object_agg(id, nested_answers)
+                FROM ( 
+                    SELECT
+                            answers.*,
+                            (
+                                    SELECT jsonb_build_object(nested_photos)
+                                    FROM (
+                                            SELECT
+                                            photos.*
+                                            FROM photos
+                                            WHERE photos.answer_id = answers.id
+                                    ) AS nested_photos
+                            ) AS photos
+                        FROM answers 
+                        WHERE answers.question_id = questions.id
+                ) AS nested_answers
+            ) AS answers
+        FROM questions
+    ) AS questions
+WHERE product_id = '${product}'
+LIMIT '${count}'
     ;`)
-    const query2 = pool.query(`SELECT * FROM answers WHERE question_id = 36 LIMIT 5`) // <==== THIS IS JSUT A TEST FOR PROMISE ALL BUT WILL BE TRYING TO ACCESS ANSWERS TABLE
-    const arrayOfQueries = [query1, query2];
-    Promise.all(arrayOfQueries)
         .then((results) => {
-            console.log(results[0].rows);
             // was considering creating everything on server side but the query was super close to finish.
-            const obj = {}
-             cb(null, results.rows);
+            // console.log(results.rows[0]);
+            results.rows[0].product_id = results.rows[0].results[0].product_id;
+            // console.log(results.rows[0]);
+            cb(null, results.rows[0]);
         })
         .catch((err) => {
             cb(err, null);
         });
 }
 
+const postQuestion = (data, cb) => {
+    console.log('passed to db: ', data);
+    const { body, name, email, product_id } = data;
+
+    pool.query(`INSERT INTO questions(product_id,
+        body, date_written, asker_name, asker_email, reported, helpful)
+        VALUES($1, $2, current_timestamp, $3, $4, false, 0)
+        `, [product_id, body, name, email])
+        .then(() => {
+            cb(null, 'Question Added!');
+        })
+        .catch((err) => {
+            cb(err, null);
+        })
+}
+
+const postAnswer = (data, cb) => {
+    console.log('passed to db: ', data);
+    const { body, name, email, question_id } = data;
+    pool.query(`INSERT INTO answers(question_id,
+        body, date, answer_name, answer_email, reported, helpful)
+        VALUES($1, $2, current_timestamp, $3, $4, false, 0)
+        `, [question_id, body, name, email])
+        .then(() => {
+            cb(null, 'Answer Added!');
+        })
+        .catch((err) => {
+            cb(err, null);
+        })
+}
+
+const questionHelpful = (data, cb) => {
+    pool.query(`UPDATE questions SET helpful = helpful + 1 WHERE id = ($1)`, [data])
+        .then(() => {
+            cb(null, 'Helpful!')
+        })
+        .catch((err) => {
+            cb(err, null);
+        })
+}
+
+const answerHelpful = (data, cb) => {
+    // pool.query(`UPDATE questions SET helpful = helpful + 1 WHERE id = ($1)`, [data]) 
+    //     .then(() => {
+    //         cb(null, 'Helpful!')
+    //     })
+    //     .catch((err) => {
+    //         cb(err, null);
+    //     })
+}
+
 module.exports = {
     pool,
     getProductQuestions,
+    postQuestion,
+    postAnswer,
+    questionHelpful,
+    answerHelpful,
 };

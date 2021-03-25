@@ -34,7 +34,7 @@ CREATE TABLE photos
 (
  id        serial NOT NULL,
  answer_id int NOT NULL,
- photos    varchar(4000) NOT NULL,
+ photos    char[] NOT NULL,
  date TIMESTAMPTZ DEFAULT NOW(),
  PRIMARY KEY ( id ),
  FOREIGN KEY ( answer_id ) REFERENCES Answers ( id )

@@ -1,0 +1,210 @@
+[
+    {
+     "product_id": "5", 
+        "results": [
+            {
+                "id": 34,
+                "body": "Can I wash it?",
+                "answers": [
+                    {
+                        "id": 10,
+                        "body": "I've thrown it in the wash and it seems fine",
+                        "date": "2017-01-04",
+                        "photos": null,
+                        "helpful": 1,
+                        "reported": false,
+                        "answer_name": "skilover",
+                        "question_id": 34,
+                        "answer_email": "first.last@cbs.com"
+                    },
+                    {
+                        "id": 11,
+                        "body": "It says not to",
+                        "date": "2017-01-04",
+                        "photos": null,
+                        "helpful": 2,
+                        "reported": false,
+                        "answer_name": "skilover",
+                        "question_id": 34,
+                        "answer_email": "first.last@cbs.com"
+                    },
+                    {
+                        "id": 12,
+                        "body": "Yes",
+                        "date": "2017-01-04",
+                        "photos": null,
+                        "helpful": 3,
+                        "reported": false,
+                        "answer_name": "skilover",
+                        "question_id": 34,
+                        "answer_email": "first.last@cbs.com"
+                    },
+                    {
+                        "id": 43,
+                        "body": "I wouldn't machine wash it",
+                        "date": "2017-11-04",
+                        "photos": null,
+                        "helpful": 5,
+                        "reported": false,
+                        "answer_name": "skilover",
+                        "question_id": 34,
+                        "answer_email": "first.last@cbs.com"
+                    },
+                    {
+                        "id": 55,
+                        "body": "Only if you want to ruin it!",
+                        "date": "2017-11-04",
+                        "photos": null,
+                        "helpful": 5,
+                        "reported": false,
+                        "answer_name": "skilover",
+                        "question_id": 34,
+                        "answer_email": "first.last@cbs.com"
+                    }
+                ],
+                "helpful": 1,
+                "reported": false,
+                "asker_name": "luaulover",
+                "product_id": "5",
+                "asker_email": "first.last@cbs.com",
+                "date_written": "2017-01-04"
+            },
+            {
+                "id": 35,
+                "body": "Where is this product made?",
+                "answers": [
+                    {
+                        "id": 27,
+                        "body": "Canada",
+                        "date": "2018-08-06",
+                        "photos": null,
+                        "helpful": 9,
+                        "reported": false,
+                        "answer_name": "footballfan",
+                        "question_id": 35,
+                        "answer_email": "first.last@gmail.com"
+                    }
+                ],
+                "helpful": 0,
+                "reported": false,
+                "asker_name": "bballfan",
+                "product_id": "5",
+                "asker_email": "first.last@gmail.com",
+                "date_written": "2018-07-06"
+            },
+            {
+                "id": 36,
+                "body": "What fabric is the top made of?",
+                "answers": [
+                    {
+                        "id": 1,
+                        "body": "Supposedly suede, but I think its synthetic",
+                        "date": "2018-01-17",
+                        "photos": null,
+                        "helpful": 1,
+                        "reported": false,
+                        "answer_name": "sillyguy",
+                        "question_id": 36,
+                        "answer_email": "first.last@gmail.com"
+                    },
+                    {
+                        "id": 13,
+                        "body": "Something pretty soft but I can't be sure",
+                        "date": "2018-01-17",
+                        "photos": null,
+                        "helpful": 4,
+                        "reported": false,
+                        "answer_name": "sillyguy",
+                        "question_id": 36,
+                        "answer_email": "first.last@gmail.com"
+                    },
+                    {
+                        "id": 15,
+                        "body": "Its the best! Seriously magic fabric",
+                        "date": "2018-01-17",
+                        "photos": null,
+                        "helpful": 6,
+                        "reported": false,
+                        "answer_name": "sillyguy",
+                        "question_id": 36,
+                        "answer_email": "first.last@gmail.com"
+                    },
+                    {
+                        "id": 28,
+                        "body": "Suede",
+                        "date": "2018-01-17",
+                        "photos": null,
+                        "helpful": 0,
+                        "reported": false,
+                        "answer_name": "sillyguy",
+                        "question_id": 36,
+                        "answer_email": "first.last@gmail.com"
+                    }
+                ],
+                "helpful": 1,
+                "reported": false,
+                "asker_name": "funnygirl",
+                "product_id": "5",
+                "asker_email": "first.last@gmail.com",
+                "date_written": "2018-06-17"
+            },
+            {
+                "id": 37,
+                "body": "Why is this product cheaper here than other sites?",
+                "answers": [
+                    {
+                        "id": 68,
+                        "body": "We are selling it here without any markup from the middleman!",
+                        "date": "2018-08-18",
+                        "photos": null,
+                        "helpful": 4,
+                        "reported": false,
+                        "answer_name": "Seller",
+                        "question_id": 37,
+                        "answer_email": "null"
+                    }
+                ],
+                "helpful": 4,
+                "reported": false,
+                "asker_name": "willsmith",
+                "product_id": "5",
+                "asker_email": "first.last@gmail.com",
+                "date_written": "2018-10-18"
+            },
+            {
+                "id": 38,
+                "body": "How long does it last?",
+                "answers": [
+                    {
+                        "id": 70,
+                        "body": "Some of the seams started splitting the first time I wore it!",
+                        "date": "2019-11-28",
+                        "photos": null,
+                        "helpful": 6,
+                        "reported": false,
+                        "answer_name": "sillyguy",
+                        "question_id": 38,
+                        "answer_email": "first.last@gmail.com"
+                    },
+                    {
+                        "id": 78,
+                        "body": "9 lives",
+                        "date": "2019-11-12",
+                        "photos": null,
+                        "helpful": 31,
+                        "reported": false,
+                        "answer_name": "iluvdogz",
+                        "question_id": 38,
+                        "answer_email": "first.last@gmail.com"
+                    }
+                ],
+                "helpful": 2,
+                "reported": false,
+                "asker_name": "funnygirl",
+                "product_id": "5",
+                "asker_email": "first.last@gmail.com",
+                "date_written": "2019-06-28"
+            }
+        ]
+    }
+]
